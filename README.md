@@ -1,4 +1,4 @@
-![DM Script Screen](https://pasteboard.co/I2eAmYx.png)
+![DM Script Screen](blob:https://pasteboard.co/4f3b0866-c909-4c19-8510-372af7c09daa)
 
 # How To Install DM
 
