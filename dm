@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-#====================================================== importing =========================================================
 import sys, datetime, os, platform, random, math
 from time import sleep
 try:
@@ -19,14 +18,12 @@ except ImportError:
     else:
         sys.exit()
 from colored import fg, bg, attr
-#======================================================== clear ===========================================================
 def system():
     if platform.system() == 'Linux':
         os.system('clear')
     else:
         os.system('cls')
 system()
-#=================================================== file information =====================================================
 try:
     type = requests.head(sys.argv[1]).headers.get('content-type')
     size = requests.head(sys.argv[1]).headers.get('content-length')
@@ -45,9 +42,7 @@ try:
 except IndexError:
     print('%s%s usage:%s'%(fg('light_red'), attr('bold'), attr('reset')), '%s%spython3 %s YourLink FileName %s' %(fg('green'), attr('bold'), sys.argv[0], attr('reset')))
     sys.exit()
-#======================================================= get date =========================================================
 when = input('%s%s Do you want to start downloading now? [Y/N]:  %s' %(fg('grey_78'), attr('bold'), attr('reset')))
-#====================================================== donlowadin ========================================================
 if when == 'Y' or when == 'y' or when == '':
     print('%s%s Downloading of Your File has Started %s' %(fg('grey_50'), attr('bold'), attr('reset')))
     try:
@@ -90,6 +85,5 @@ elif when == 'N' or when == 'n':
         else:
             sleep(1)
             continue
-#========================================================= exit ===========================================================
 else:
     sys.exit()
