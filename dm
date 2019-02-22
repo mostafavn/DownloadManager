@@ -7,25 +7,25 @@ except ImportError:
     reqLib = input('you need to install Requests library, Continue? [Y/N] ')
     if reqLib == 'y' or reqLib == 'Y':
         os.system('pip3 install Requests')
+        import requests
     else:
         sys.exit()
 try:
     import colored
 except ImportError:
     colLib = input('you need to install Colored library, Continue? [Y/N] ')
-    if reqLib == 'y' or reqLib == 'Y':
+    if colLib == 'y' or colLib == 'Y':
         os.system('pip3 install colored')
+        import colored
     else:
         sys.exit()
 from colored import fg, bg, attr
-
 def system():
     if platform.system() == 'Linux':
         os.system('clear')
     else:
         os.system('cls')
 system()
-
 try:
     type = requests.head(sys.argv[1]).headers.get('content-type')
     size = requests.head(sys.argv[1]).headers.get('content-length')
@@ -48,7 +48,6 @@ except requests.exceptions.ConnectionError:
     pass
 except requests.exceptions.MissingSchema:
     pass
-
 if ':' in sys.argv[-1]:
     dating = sys.argv[-1].find(':')
     hour = sys.argv[-1][:dating]
@@ -93,4 +92,3 @@ else:
         print('%s%s Your link should have a Http or Https %s' %(fg('red'), attr('bold'), attr('reset')))
     except:
         print('%s%s Your File has Not Successfully Downloaded %s' %(fg('red'), attr('bold'), attr('reset')))
-#========================================================= exit ===========================================================
