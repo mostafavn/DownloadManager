@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#====================================================== importing =========================================================
 import sys, datetime, os, platform, random, math
 from time import sleep
 try:
@@ -20,12 +21,14 @@ except ImportError:
     else:
         sys.exit()
 from colored import fg, bg, attr
+#======================================================== clear ===========================================================
 def system():
     if platform.system() == 'Linux':
         os.system('clear')
     else:
         os.system('cls')
 system()
+#=================================================== file information =====================================================
 try:
     type = requests.head(sys.argv[1]).headers.get('content-type')
     size = requests.head(sys.argv[1]).headers.get('content-length')
@@ -42,12 +45,13 @@ try:
         a = round(int(size)/1000000, 2)
         print('%s%s size: %s MG          type: %s         name: %s %s' %(fg('plum_4'), attr('bold'), a, b, name, attr('reset')))
 except IndexError:
-    print('%s%s usage:%s'%(fg('light_red'), attr('bold'), attr('reset')), '%s%spython3 %s YourLink FileName %s' %(fg('green'), attr('bold'), sys.argv[0], attr('reset')))
+    print('%s%s usage%s: %s%sdm YourLink FileName %s'%(fg('light_red'), attr('bold'), attr('reset'), fg('green'), attr('bold'), attr('reset')))
     sys.exit()
 except requests.exceptions.ConnectionError:
     pass
 except requests.exceptions.MissingSchema:
     pass
+#====================================================== donlowadin ========================================================
 if ':' in sys.argv[-1]:
     dating = sys.argv[-1].find(':')
     hour = sys.argv[-1][:dating]
@@ -92,3 +96,4 @@ else:
         print('%s%s Your link should have a Http or Https %s' %(fg('red'), attr('bold'), attr('reset')))
     except:
         print('%s%s Your File has Not Successfully Downloaded %s' %(fg('red'), attr('bold'), attr('reset')))
+#========================================================= exit ===========================================================
