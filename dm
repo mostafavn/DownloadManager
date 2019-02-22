@@ -27,6 +27,7 @@ def system():
         os.system('clear')
     else:
         os.system('cls')
+        print('behtar ast felan dar windows estefade nakonin . yekam dardesar dare')
 system()
 #=================================================== file information =====================================================
 try:
